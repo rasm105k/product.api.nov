@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/InfinityEloctronics/.vs/InfinityEloctronics
+/InfinityEloctronics/InfinityElectronics.Shared/obj
