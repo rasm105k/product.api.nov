@@ -1,0 +1,50 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  azureSubscription: 'InfinityElectronics-sub' 
+  resourceGroup: 'InfinityElectronics-dev'  
+  functionAppName: 'InfinityElectronics-ProductImport'  
+  functionAppPackage: '$(Build.ArtifactStagingDirectory)/functionapp.zip'
+
+jobs:
+- job: BuildAndDeployFunction
+  displayName: 'Build and Deploy Azure Function'
+
+  steps:
+  - task: UseDotNet@2
+    displayName: 'Install .NET SDK'
+    inputs:
+      packageType: 'sdk'
+      version: '6.x'
+
+  - task: Restore@2
+    displayName: 'Restore Dependencies'
+    inputs:
+      restoreSolution: '**/*.csproj'
+
+  - task: Build@1
+    displayName: 'Build Solution'
+    inputs:
+      solution: '**/*.csproj'
+
+  - task: Publish@1
+    displayName: 'Publish Function App'
+    inputs:
+      publishWebProjects: true
+      zipAfterPublish: true
+      modifyOutputPath: false
+      publishDirectory: '$(Build.ArtifactStagingDirectory)/functionapp'
+
+  - task: AzureFunctionApp@1
+    displayName: 'Deploy Function to Azure'
+    inputs:
+      azureSubscription: $(azureSubscription)
+      appType: 'functionApp'
+      appName: $(functionAppName)
+      package: $(functionAppPackage)
