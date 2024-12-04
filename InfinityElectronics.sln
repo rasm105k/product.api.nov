@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfinityElectronics.Product
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfinityElectronics.Shared", "src\InfinityElectronics.Shared\InfinityElectronics.Shared.csproj", "{39B81751-383E-44CE-9886-4C6B2764EBF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfitinityElectronics.Web", "src\InfitinityElectronics.Web\InfitinityElectronics.Web.csproj", "{182AC58C-0FA4-4840-914B-C816DF365995}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InfitinityElectronics.Web", "src\InfitinityElectronics.Web\InfitinityElectronics.Web.csproj", "{182AC58C-0FA4-4840-914B-C816DF365995}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -11,7 +11,6 @@ namespace InfitinityElectronics.Web.Services
             var cachedProduct = memoryCache.GetOrCreate(id, x =>
             {
                 var product = productRepository.GetProduct(id);
-
                 var productViewModel = ProductViewModel.Map(product);
 
                 return productViewModel;
