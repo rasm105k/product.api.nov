@@ -5,3 +5,5 @@
 /.vs
 /InfinityEloctronics/.vs/InfinityEloctronics
 /InfinityEloctronics/InfinityElectronics.Shared/obj
+/src/.vs
+/src/InfinityElectronics.Shared/obj
