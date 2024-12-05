@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace InfinityElectronics.Shared.Models
 {
@@ -9,9 +10,205 @@ namespace InfinityElectronics.Shared.Models
             optionsBuilder.UseInMemoryDatabase("InfinityElectronicsDb");
         }
 
+
+        public DbSet<Product> Products { get; set; }
+        public DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Product>().HasData(new List<Product>() 
+            CreateCategories(modelBuilder);
+            CreateProducts(modelBuilder);
+        }
+
+        private void CreateCategories(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Category>().HasData(new List<Category>()
+            {
+                new Category
+                {
+                    Id = "cat-01",
+                    Name = "Laptops",
+                    Description = "Portable computers for all your computing needs."
+                },
+                new Category
+                {
+                    Id = "cat-02",
+                    Name = "Smartphones",
+                    Description = "Mobile devices to keep you connected."
+                },
+                new Category
+                {
+                    Id = "cat-03",
+                    Name = "Tablets",
+                    Description = "Compact and powerful devices for work and play."
+                },
+                new Category
+                {
+                    Id = "cat-04",
+                    Name = "Wearables",
+                    Description = "Smart devices you can wear, like watches and fitness trackers."
+                },
+                new Category
+                {
+                    Id = "cat-05",
+                    Name = "Audio",
+                    Description = "Devices for listening to music and other audio."
+                },
+                new Category
+                {
+                    Id = "cat-06",
+                    Name = "Gaming",
+                    Description = "Consoles, accessories, and other gaming equipment."
+                },
+                new Category
+                {
+                    Id = "cat-07",
+                    Name = "Smart Home",
+                    Description = "Devices to make your home smart and connected."
+                },
+                new Category
+                {
+                    Id = "cat-08",
+                    Name = "Televisions",
+                    Description = "TVs of various sizes and technologies."
+                },
+                new Category
+                {
+                    Id = "cat-09",
+                    Name = "Cameras",
+                    Description = "Devices for capturing photos and videos."
+                },
+                new Category
+                {
+                    Id = "cat-10",
+                    Name = "Networking",
+                    Description = "Routers, modems, and other networking equipment."
+                },
+                new Category
+                {
+                    Id = "cat-11",
+                    Name = "E-Readers",
+                    Description = "Devices designed for reading digital books."
+                },
+                new Category
+                {
+                    Id = "cat-12",
+                    Name = "Appliances",
+                    Description = "Household appliances with advanced features."
+                },
+                new Category
+                {
+                    Id = "cat-13",
+                    Name = "Accessories",
+                    Description = "Additional equipment for your electronic devices."
+                },
+                new Category
+                {
+                    Id = "cat-14",
+                    Name = "VR and AR",
+                    Description = "Virtual and augmented reality devices."
+                },
+                new Category
+                {
+                    Id = "cat-15",
+                    Name = "Drones",
+                    Description = "Remote-controlled aerial devices."
+                },
+                new Category
+                {
+                    Id = "cat-16",
+                    Name = "Fitness",
+                    Description = "Devices to monitor and improve your health."
+                },
+                new Category
+                {
+                    Id = "cat-17",
+                    Name = "Transport",
+                    Description = "Electric scooters and other personal transportation."
+                },
+                new Category
+                {
+                    Id = "cat-18",
+                    Name = "Office",
+                    Description = "Electronics designed for the office environment."
+                },
+                new Category
+                {
+                    Id = "cat-19",
+                    Name = "Home Security",
+                    Description = "Devices to keep your home secure."
+                },
+                new Category
+                {
+                    Id = "cat-20",
+                    Name = "Charging",
+                    Description = "Devices for charging your electronics."
+                },
+                new Category
+                {
+                    Id = "cat-21",
+                    Name = "Power & Energy",
+                    Description = "Equipment for powering electronic devices."
+                },
+                new Category
+                {
+                    Id = "cat-22",
+                    Name = "Smart Mirrors",
+                    Description = "Mirrors with smart technology."
+                },
+                new Category
+                {
+                    Id = "cat-23",
+                    Name = "High-Speed Internet",
+                    Description = "Devices to ensure fast internet connections."
+                },
+                new Category
+                {
+                    Id = "cat-24",
+                    Name = "Wearable Tech",
+                    Description = "Advanced technology you can wear."
+                },
+                new Category
+                {
+                    Id = "cat-25",
+                    Name = "Bluetooth Devices",
+                    Description = "Various devices that use Bluetooth technology."
+                },
+                new Category
+                {
+                    Id = "cat-26",
+                    Name = "Health",
+                    Description = "Devices focused on health and wellness."
+                },
+                new Category
+                {
+                    Id = "cat-27",
+                    Name = "Smart Transportation",
+                    Description = "Advanced transportation options."
+                },
+                new Category
+                {
+                    Id = "cat-28",
+                    Name = "Electric Vehicles",
+                    Description = "Environmentally-friendly transportation options."
+                },
+                new Category
+                {
+                    Id = "cat-29",
+                    Name = "Computer Peripherals",
+                    Description = "Additional devices for your computer."
+                },
+                new Category
+                {
+                    Id = "cat-30",
+                    Name = "Virtual Assistants",
+                    Description = "Devices with smart assistant technology."
+                }
+            });
+        }
+        private void CreateProducts(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Product>().HasData(new List<Product>()
             {
                 new Product
                 {
@@ -276,7 +473,5 @@ namespace InfinityElectronics.Shared.Models
                 }
             });
         }
-
-        public DbSet<Product> Products { get; set; }
     }
 }

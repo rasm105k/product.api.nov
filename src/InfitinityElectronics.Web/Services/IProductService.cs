@@ -5,6 +5,6 @@ namespace InfitinityElectronics.Web.Services
     public interface IProductService
     {
         ProductViewModel? GetProduct(string id);
-        List<ProductViewModel> GetProducts(int currentPage, int pageSize);
+        List<ProductViewModel> GetProducts(int currentPage, int pageSize, string? category = null);
     }
 }

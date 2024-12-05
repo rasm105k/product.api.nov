@@ -26,12 +26,12 @@ namespace InfitinityElectronics.Web.Controllers
             }
         }
 
-        [HttpGet("")]
-        public IActionResult GetProducts([FromQuery] int currentPage = 1, [FromQuery] int pageSize = 1)
+        [HttpGet("list")]
+        public IActionResult GetProducts([FromQuery] int currentPage = 1, [FromQuery] int pageSize = 10, [FromQuery] string? categoryId = null)
         {
             try
             {
-                List<ProductViewModel> products = productService.GetProducts(currentPage, pageSize);
+                List<ProductViewModel> products = productService.GetProducts(currentPage, pageSize, categoryId);
                 return Ok(products);
             }
             catch (Exception e)

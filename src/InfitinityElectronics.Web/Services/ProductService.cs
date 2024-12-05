@@ -19,9 +19,9 @@ namespace InfitinityElectronics.Web.Services
             return cachedProduct;
         }
 
-        public List<ProductViewModel> GetProducts(int currentPage, int pageSize)
+        public List<ProductViewModel> GetProducts(int currentPage, int pageSize, string? category = null)
         {
-            var products = productRepository.GetProducts(currentPage, pageSize);
+            var products = productRepository.GetProducts(currentPage, pageSize, category);
 
             var paginatedProducts = products.Select(ProductViewModel.Map).ToList();
 
